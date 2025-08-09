@@ -1,0 +1,21 @@
+title: "Tech Thoughts"
+description: "Exploring technology, one idea at a time"
+author: "Your Name"
+email: "your@email.com"
+github_username: "yourusername"
+
+baseurl: ""
+url: "https://yourusername.github.io"
+
+markdown: kramdown
+highlighter: rouge
+permalink: /:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
