@@ -65,6 +65,126 @@
             color: #333;
         }
 
+        .theme-toggle {
+            background: none;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 0.5rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: #666;
+            transition: all 0.2s ease;
+            margin-left: 1rem;
+        }
+
+        .theme-toggle:hover {
+            border-color: #999;
+            color: #333;
+        }
+
+        /* Dark mode styles */
+        [data-theme="dark"] {
+            background: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        [data-theme="dark"] header {
+            border-bottom-color: #333;
+        }
+
+        [data-theme="dark"] header h1 a {
+            color: #e0e0e0;
+        }
+
+        [data-theme="dark"] header h1 a:hover {
+            color: #66b3ff;
+        }
+
+        [data-theme="dark"] .subtitle {
+            color: #999;
+        }
+
+        [data-theme="dark"] nav a {
+            color: #999;
+        }
+
+        [data-theme="dark"] nav a:hover {
+            color: #e0e0e0;
+        }
+
+        [data-theme="dark"] .theme-toggle {
+            border-color: #444;
+            color: #999;
+        }
+
+        [data-theme="dark"] .theme-toggle:hover {
+            border-color: #666;
+            color: #e0e0e0;
+        }
+
+        [data-theme="dark"] .post {
+            border-bottom-color: #2a2a2a;
+        }
+
+        [data-theme="dark"] .post-date {
+            color: #666;
+        }
+
+        [data-theme="dark"] .post h2 a {
+            color: #e0e0e0;
+        }
+
+        [data-theme="dark"] .post h2 a:hover {
+            color: #66b3ff;
+        }
+
+        [data-theme="dark"] .post h1 {
+            color: #e0e0e0;
+        }
+
+        [data-theme="dark"] .post-excerpt {
+            color: #bbb;
+        }
+
+        [data-theme="dark"] .post-content {
+            color: #e0e0e0;
+        }
+
+        [data-theme="dark"] .read-more {
+            color: #66b3ff;
+        }
+
+        [data-theme="dark"] code {
+            background: #2a2a2a;
+            color: #e0e0e0;
+        }
+
+        [data-theme="dark"] pre {
+            background: #2a2a2a;
+        }
+
+        [data-theme="dark"] .highlight pre {
+            background: #2a2a2a;
+        }
+
+        [data-theme="dark"] .post-content blockquote {
+            border-left-color: #66b3ff;
+            color: #999;
+        }
+
+        [data-theme="dark"] footer {
+            border-top-color: #333;
+            color: #666;
+        }
+
+        [data-theme="dark"] footer a {
+            color: #999;
+        }
+
+        [data-theme="dark"] footer a:hover {
+            color: #e0e0e0;
+        }
+
         .post {
             margin-bottom: 3rem;
             padding-bottom: 2rem;
@@ -225,6 +345,7 @@
             <a href="{{ '/' | relative_url }}">Home</a>
             <a href="{{ '/about' | relative_url }}">About</a>
             <a href="mailto:{{ site.email }}">Contact</a>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
         </nav>
     </header>
 
@@ -240,5 +361,30 @@
             {% if site.email %}<a href="mailto:{{ site.email }}">Email</a>{% endif %}
         </p>
     </footer>
+
+    <script>
+        // Theme toggle functionality
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            const toggleBtn = document.querySelector('.theme-toggle');
+
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+
+            // Update button text
+            toggleBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        }
+
+        // Load saved theme on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const toggleBtn = document.querySelector('.theme-toggle');
+
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            toggleBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        });
+    </script>
 </body>
 </html>
