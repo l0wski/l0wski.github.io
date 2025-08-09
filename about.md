@@ -1,7 +1,3 @@
-## Step 8: Optional About Page
-Create `about.md`:
-
-```markdown
 ---
 layout: default
 title: About
@@ -9,12 +5,12 @@ title: About
 
 # About
 
-Hi, I'm [Your Name], a developer who loves exploring technology and sharing what I learn.
+Bonjou vouzòt, mô nom çé Lowski. Not exactly sure which direction I'm taking this blog yet, but stay tuned.
 
-This blog focuses on:
-- Modern development tools and techniques
-- Minimalist design principles
-- Command line productivity
-- Open source projects
+Topics I'll likely cover:
+- Books
+- Musings
+- Technology
+- Toukishòj Kréyòl Lalwizyan
 
 Feel free to reach out if you want to discuss any of these topics!
