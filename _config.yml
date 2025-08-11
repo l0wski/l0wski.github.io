@@ -1,11 +1,11 @@
 title: "Lowski's World"
-description: "Exploring technology, one idea at a time"
+description: "Everything and Nothing"
 author: "l0wski"
 email: "your@email.com"
 github_username: "l0wski"
 
 baseurl: ""
-url: "https://yourusername.github.io"
+url: "https://l0wski.github.io"
 
 markdown: kramdown
 highlighter: rouge
